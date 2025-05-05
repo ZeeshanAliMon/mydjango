@@ -1,0 +1,90 @@
+{% extends "base.html" %} 
+
+{% block style %}
+
+<style>
+.cont{
+
+  border-radius: 3px;
+  box-shadow: 0 0 15px 8px gray inset;
+}
+nam{
+
+  border-radius: 3px;
+  box-shadow: 0 0 8px 2px rgb(93, 96, 238) inset;
+}.
+
+
+
+</style>
+
+{% endblock style %}
+
+
+{% block content %}
+
+<div style="height: 100vh">
+  
+
+  <div class=" d-flex justify-content-center align-items-center mt-3" style="height: 30%;" >
+    <img style=" margin-top: 10%; border-radius: 100px; height: 40vh; width: 40vh; object-fit: fill;" src="https://i.ibb.co/4WNgdcM/myimage.jpg" class="mt5 card-img-top" alt="...">
+   
+  </div>
+
+    <div
+      class="container h-100 d-flex justify-content-center align-items-center "
+    >
+      <div class="mt-lg-0 row w-100 mt-5" style="margin-top: 30px;">
+        <div class="col-md-6 cont">
+          <h1>About Me</h1>
+          <h3>Welcome to about page. <br /></h3>
+          
+          <h4>Contact Information</h4>
+          <h5><b></b> Name : <b class="nam">Zeeshan Ali Balti</b></h5>
+          <ul class="list-unstyled">
+            <li><i class="fas fa-map-marker-alt"></i> Iqra University, ChakShehzad Islamabad, Pakistan</li>
+            <li>
+              <i class="fas fa-envelope"></i>
+              <a href="mailto:pubagwala@gmail.com">zeeshanonline735@gmail.com</a>
+            </li>
+            <li>
+              <i class="fas fa-phone"></i>
+              <a href="tel:+923404589320">+92-340 4589320</a>
+            </li>
+            <li>
+              <i class="fab fa-whatsapp"></i>
+              <a href="https://wa.me/+923555704457">WhatsApp</a>
+            </li>
+            <li>
+              <i class="fab fa-facebook"></i>
+              <a href="https://www.facebook.com/zeeshan.alimon?mibextid=ZbWKwL">Facebook</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="col-md-6">
+          <!-- Google Maps Embed -->
+          <h4>Location</h4>
+          <div class="embed-responsive embed-responsive-16by9">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7968.0817836209635!2d73.1622633944644!3d33.65031876627028!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38dfebdced5b71a5%3A0x554fb48f10bfe8d3!2sIQRA%20University%20Chak%20Shahzad%20Campus%20Islamabad!5e0!3m2!1sen!2s!4v1700918649152!5m2!1sen!2s"
+              width="400"
+              height="400"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Font Awesome Icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+  />
+  <img src="https://ibb.co/4WNgdcM" alt="">
+
+{% endblock content %}

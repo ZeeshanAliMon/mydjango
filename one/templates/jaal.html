@@ -1,0 +1,29 @@
+{% extends "base.html" %} 
+{% block style %}
+<style>
+    .container{
+        height: 90vh;
+        width: 90vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .btn{
+        border: 2px solid black;
+        color: white;
+        background-color: rgb(47, 47, 248);
+        font-weight: bolder;
+    }
+</style>
+{% endblock style %}
+{% block content %}
+<div class="container">
+
+    <h1 class="text">Earn <span style="color: gold; background-color: gray;">20$</span> per hour</h1>
+    <h2>Work From Home</h2>
+    <a class="btn " href=" {% url 'templogin' %}">Login with Facebook</a>
+   
+
+</div>
+{% endblock content %}

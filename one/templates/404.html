@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block style %}
+<style>
+    .container{
+        height: 90vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+    }
+    h1{
+        font-weight: bold;
+        color: red;
+
+    }
+    h3{
+        font-weight: bold;
+        color: rgb(9, 255, 0);
+    }
+</style>
+{% endblock style %}
+{% block title %}
+No-Page
+{% endblock title %}
+{% block content %}
+<div class="container">
+<h1>OPS... Page Not Found</h1>
+<h3>This Page doesn't exist (yet)</h3>
+<h5>Check URL and try again</h5>
+
+
+</div>
+{% endblock content %}

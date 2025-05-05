@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+{% block style %}
+<style>
+    .container{
+        width: 100vw;
+        margin-top: 10px;
+        height: 90vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+    }
+    .form{
+        width: 300px;
+        top: 0;
+        height: 20%;
+        background-color: gray;
+        border: solid greenyellow 1px;
+    }
+    form{display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .but{
+        width: fit-content;
+    }
+    .table{
+       width: 90vw;
+    }
+</style>
+{% endblock style %}
+{% block title %}
+Results
+{% endblock title %}
+{% block content %}
+
+<div class="container">
+    <h1>Student Result</h1>
+    <div class="form">
+    
+    <form action="result" method="POST">
+        {% csrf_token %}
+ <label for="input">Enter Roll No</label>
+ <input  class="m-1" type="number" id="input" name="roll" placeholder="22144" value={{roll|default:""}}>
+ <input class="but" type="submit" value="Submit">
+</form>
+</div>
+<div class="result">
+    {% if student != "no" %}
+    {% if student == "0" %}
+    <h1>No Student Found</h1>
+    
+    {% else %}
+
+    <h1> Name : {{student.name}}</h1>
+
+    <table class="table  table-dark">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Marks</th>
+            
+          </tr>
+        </thead>
+        <tbody>
+            {% for subject in subjects %}
+            <tr>
+            
+                <td>{{subject.subname}}</td>
+                <td>{{subject.mark}}</td>
+              </tr>
+            
+            {% endfor %}
+          
+          
+        </tbody>
+      </table>
+
+<script>
+    
+</script>
+    {% endif %}
+    
+    {% endif %}
+    
+</div>
+</div>
+{% endblock content %}

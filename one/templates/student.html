@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block style %}
+<style>
+    .info{
+        width: width;
+        color: blue;
+    }
+</style>
+{% endblock style %}
+{% block title %}
+Students
+{% endblock title %}
+
+{% block content %}
+
+
+
+<div class="container h-100 align-center">
+    <h1 class="text-center" > Our Students:</h1>
+    <ul class="list-group-horizontal">
+        {% for student in students %}
+        <li class="list-group-item text-center cursor-pointer"><a href="{% url 'studentinfo' student.roll %}">{{ student.name }}</a></li>
+        {% endfor %}
+        
+    
+
+      </ul>
+       
+
+{% if studentinfo.student.roll > 0 %}
+<h1>Student Info</h1>
+<h4><span class="info">Name : </span>{{studentinfo.student.name}}</h4>
+<h4><span class="info">Roll No. : </span>{{studentinfo.student.roll}}</h4>
+<h4><span class="info">Father's Name : </span>{{studentinfo.fname}}</h4>
+<h4><span class="info">Department : </span>{{studentinfo.department}}</h4>
+<h4><span class="info">Programme : </span>{{studentinfo.programme}}</h4>
+<h4><span class="info">Contact : </span>+92-{{studentinfo.contact}}</h4>
+<h4><span class="info">CGPA : </span>{{studentinfo.cgpa}}</h4>
+{% else %}
+{% endif %}
+</div>
+{% endblock content %}

@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+{% block style %}
+<style>
+    body {
+        background: linear-gradient(to right, #00c6ff, #0072ff);
+        font-family: 'Poppins', sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        width: 500px;
+        margin: 50px auto;
+        background-color: #ffffff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    h2 {
+        text-align: center;
+        color: #0072ff;
+        margin-bottom: 25px;
+    }
+
+    form input[type="number"], form button {
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+
+    form input:focus {
+        border: 2px solid #0072ff;
+        outline: none;
+    }
+
+    form button {
+        background-color: #0072ff;
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        border: none;
+    }
+
+    form button:hover {
+        background-color: #005fdd;
+    }
+
+    .result {
+        margin-top: 20px;
+        text-align: center;
+        font-size: 18px;
+        color: green;
+    }
+
+    .back-link {
+        display: block;
+        text-align: center;
+        margin-top: 20px;
+        font-size: 16px;
+        color: #0072ff;
+        text-decoration: none;
+    }
+</style>
+{% endblock style %}
+
+{% block content %}
+<div class="container">
+    <h2>Crop Prediction</h2>
+    <form method="POST" action="">
+        {% csrf_token %}
+        <input type="number" name="nitrogen" placeholder="Nitrogen (N)" required>
+        <input type="number" name="phosphorus" placeholder="Phosphorus (P)" required>
+        <input type="number" name="potassium" placeholder="Potassium (K)" required>
+        <input type="number" step="0.1" name="temperature" placeholder="Temperature (°C)" required>
+        <input type="number" step="0.1" name="humidity" placeholder="Humidity (%)" required>
+        <input type="number" step="0.1" name="ph" placeholder="pH level" required>
+        <input type="number" step="0.1" name="rainfall" placeholder="Rainfall (mm)" required>
+        <button type="submit">Predict Crop</button>
+    </form>
+
+    {% if result %}
+        <div class="result">
+            <strong>Recommended Crop:</strong> {{ result }}
+        </div>
+    {% endif %}
+
+    <a href="{% url 'home' %}" class="back-link">← Back to Home</a>
+</div>
+{% endblock content %}

@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container" >
+<h1 class="mt-5">We will be very thankfull for you kind suggestion </h1>
+<form method="POST" action="">
+  {% csrf_token %}
+    <div class="form-group">
+      <label for="name">Name :</label>
+      <input name="name" type="text" class="form-control" id="name" placeholder="Your Name">
+    </div>
+    <div class="form-group">
+      <label for="email">Email :</label>
+      <input name="email" type="email" class="form-control" id="email" placeholder="name@example.com">
+    </div>
+    
+    <div class="form-group">
+      <label for="text">Suggestion :</label>
+      <textarea name="text" class="form-control" id="text" rows="3" placeholder="Type your suggestions here "></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+{% endblock content %}

@@ -1,0 +1,462 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+ 
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zeeshan's Chrome</title>
+    <style>*{
+        margin: 0;padding: 0;
+    }
+    .bdy{
+        background-color: black;
+        height: 100vh;
+        width: 100vw;
+        display: block;text-align: center;
+        display: flex;
+        flex-direction: column;
+    
+        /* text-align:  center;
+        justify-content: center; */
+    
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    .main{position: absolute;
+        
+       left :30%;
+        top: 10%;
+        height: 30em;
+        width: 30em;
+        background-color: white;
+        overflow: hidden;
+        box-shadow: 0px 10px 20px 3px aqua;
+     
+    
+    }
+    .title h1{margin: auto;
+        margin-top: 10px;
+    cursor: no-drop;
+        height: 30%;
+        width: 70%;
+        border: solid black 3px;
+        color: deeppink;
+        border-radius: 5px;
+        box-shadow: 0 5px 10px 2px deeppink;
+    }
+    .title h1:hover{
+        transform: translateY(3px);
+    
+    }
+    .title h2{
+        cursor: not-allowed;
+        color: rgb(14, 172, 14);
+        width: 80%;
+        margin: auto;
+        /* background-color: lightgray; */
+        /* border: gold solid 3px; */
+        padding: 4px auto;
+        margin: 20px auto;
+        border-radius: 10px;
+    }
+    .links{
+        display: flex;
+        height: 70%;
+    }
+    .sec1,.sec2{
+        background-color: gold;
+        border: solid 3px deeppink;
+        width: 40%;
+        margin: auto;
+        height: 100%;
+        box-shadow: 0 0 20px 2px black;
+        padding: 3px;
+    
+    }
+    .link {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    height: 15.2%;
+        width: 100%;
+        border: 3px solid black;
+        background-color: rgb(61, 61, 243);
+        
+    
+    }
+    .link:hover{
+     
+    
+     
+            transform: translateY(3px); 
+    }
+    .link a{
+        text-decoration: none;
+        font-size: 28px;
+        font-weight: 900;
+       
+        color: white;
+    }
+    .link:nth-child(5){
+        
+    cursor: not-allowed;
+    }
+    .link:nth-child(6){
+        
+    cursor: not-allowed;
+    }
+    .link:nth-child(5) a{
+        
+    cursor: not-allowed;
+    }
+    .link:nth-child(6) a{
+        
+    cursor: not-allowed;
+    }
+    
+    
+    .neon{
+        position: absolute;
+        height: 99%;
+        width: 6px;
+    background: linear-gradient(0, white, rgb(253, 4, 4));
+    
+    animation-duration: 4s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    
+    }
+    
+    
+    .neon:nth-child(1){
+      left: 0;
+       animation-name: ani1;
+    }
+    .neon:nth-child(2){
+    
+        top: 0.8%;
+        right: 0;
+        transform: rotate(90deg);
+        transform-origin: top;
+        
+       animation-name: ani2;
+    
+    }
+    .neon:nth-child(3){
+        right: 0;
+        transform: rotate(180deg);
+    
+        animation-name: ani3;
+      
+    }
+    .neon:nth-child(4){
+    
+        transform: rotate(270deg);
+        transform-origin: bottom;
+        right: 0;
+    bottom: 0.8%;
+    
+    animation-name: ani4;
+    
+    }
+    
+    
+     @keyframes ani1 {
+    0%{
+       bottom: -100%;
+    }
+    100%{
+        bottom: 400%;
+    }}
+     @keyframes ani2 {
+    0%{
+       left: -50%;
+    }
+    100%{
+        left: 200%;
+    }}
+     @keyframes ani3 {
+    0%{
+       bottom: 400%;
+    }
+    100%{
+        bottom: -100%;
+    }}
+     @keyframes ani4 {
+    0%{
+       left: 1000%;
+    }
+    100%{
+        left: 0%;
+    }}
+    
+    
+    
+    
+    .navbar{
+        z-index: 9999;
+        display: flex;
+        align-items: center;
+        /* height: 8%; */
+        width: 100%;
+        background-color: gray;
+        /* background: linear-gradient(180deg ,transparent,white,transparent); */
+    /* background-color: white; */
+    }
+    
+    .navbar h1{
+        display: flex;
+        align-items: center;
+        height: 50px;
+        width:60%;
+        position:  relative;
+        top: -3px;
+        padding-top: 2px;
+       
+    }
+    .navbar .links{
+        /* flex-direction: column; */
+        display: flex;
+        align-items: center;
+        height: 80%;
+        width: 60%;
+        /* border: 3px solid red; */
+      
+    
+    }
+    
+    
+    .navbar .links li{
+        background-color: white;
+     
+        
+        margin: 3px;
+        padding: 3px;
+        border: solid aqua 2px;
+        border-radius: 10%;
+        list-style-type: none;
+        width: 120px;
+        box-shadow: 2px 2px 5px black ;
+    }
+    .navbar .links li:hover{
+        background-color: rgb(183, 179, 248);
+        transition: 0.5s;
+        color: white;
+        cursor: pointer;
+        transform: translateY(2px);
+        box-shadow: 0 0 0 white;
+       
+    }
+    .navbar .links a{
+        font-size: 20px;
+        /* color: black; */
+       font-weight: 900;
+       text-decoration: none;
+       color: black;
+       
+    }
+    .navbar .search{
+        /* border: black solid 3px; */
+        width: 30%;
+        height: 40px;
+    display: flex;
+    justify-content: flex-end;
+    }
+    .navbar .search input{
+        padding: 2px;
+        padding-left: 5px;
+        width: 70%;
+        font-size: 15px;
+        background-color: white;
+        border-radius: 8%;
+        margin-right: 2px;
+    }
+    .navbar .search input:focus{
+       border: 0;
+        color: blue;
+      
+    }
+    .navbar .search button{
+        background-color: blue;
+        color: white;
+        font-weight: 900;
+        border-radius: 10px;
+    }
+    .navbar .search button:hover{
+        background-color: aqua;
+        cursor: pointer;
+        transition: 0.1s;
+        transform: translateY(1px);
+    }
+    
+    @media (max-width : 830px){
+    
+    .navbar .links li{
+        width: 80px;
+    }
+    .main{
+        left: 20%;
+    }
+    .navbar  h1{
+        font-size: 18px;
+    }
+    }
+    
+    
+    @media (max-width : 600px){
+    
+        .main{
+            width: 100%;
+            left:  0;
+        }
+        .navbar{
+            flex-direction: column;
+        }
+        .navbar .links{
+            flex-direction: column;
+            display: none;
+        }
+        .navbar .search{
+            display: none;
+        }
+        .show .search{
+            display: flex;
+            width: 70%;
+        }
+    
+        .show .links{
+            transition: 2s;
+            display: flex;
+        }
+    }
+    
+    @media (max-width : 439px){
+    .main{
+        height: 100%;
+    }
+    .main .links .link a{
+    
+        font-size: 18px;
+    }
+    }</style>
+    <script src="script.js"></script>
+  </head>
+  <body>
+
+
+
+    <div class="bdy">
+
+{% comment %}  {% endcomment %}
+      
+
+      <div class="main">
+        <div class="neon" id="1"></div>
+        <div class="neon" id="2"></div>
+        <div class="neon" id="3"></div>
+        <div class="neon" id="4"></div>
+
+        <div class="title">
+          <h1 id="title"><span>Zeeshan's</span> Web</h1>
+          <h2>Here are some quick links for you</h2>
+        </div>
+        <div class="links">
+          <div class="sec1">
+<div class="link">
+              <a href="https://zeeshanbalti.w3spaces.com/Calculator/index.html" target="_main"
+                >Calculator</a
+              >
+            </div>
+            <div class="link">
+              <a href="https://zeeshanbalti.w3spaces.com/ImageSlider/index.html" target="_self">ImageSlider</a>
+            </div>
+            <div class="link">
+              <a href="https://zeeshanbalti.w3spaces.com/TikTakToe/index.html" target="_blank">Game</a>
+            </div>
+            <div class="link">
+              <a
+                href="https://zeeshanbalti.w3spaces.com/StopWatch/index.html"
+                target="_blank"
+                >StopWatch</a
+              >
+            </div>
+            <div class="link">
+              <a href="https://www.typingtest.com/" target="_blank"
+                >Typing test</a
+              >
+            </div>
+            <div class="link">
+              <a href="../ImageSlider/index.html" target="_self"
+                >Image slider</a
+              >
+            </div>
+
+            
+          </div>
+          <div class="sec2">
+            <div class="link">
+              <a href="https://www.youtube.com/" target="_self">Youtube</a>
+            </div>
+            <div class="link">
+              <a href="https://chat.openai.com/" target="_blank">ChatGPT-3</a>
+            </div>
+            <div class="link">
+              <a
+                href="https://www.typing.com/student/typing-test/1-minute"
+                target="_blank"
+                >Typing.com</a
+              >
+            </div>
+            <div class="link">
+              <a href="https://www.typingtest.com/" target="_blank"
+                >Typing test</a
+              >
+            </div>
+            <div class="link">
+              <a href="../ImageSlider/index.html" target="_self"
+                >Image slider</a
+              >
+            </div>
+
+            <div class="link">
+              <a href="../StopWatch/index.html" target="_self"
+                >Stopwatch</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <script >
+    const hamberer = document.querySelector(".hamberger")
+        hamberer.addEventListener("click",()=>{
+        console.log("hamberger is clicked")
+        document.querySelector(".navbar").classList.toggle("show")
+        
+        })</script>
+  </body>
+</html>
+{% endblock content %}

@@ -1,0 +1,97 @@
+{% extends "base.html" %} {% block style %}
+<style>
+  .body{
+   
+    background: linear-gradient(rgb(243, 99, 99),rgb(248, 245, 245),rgb(247, 247, 106));
+  }
+  .title {
+    padding: 0.5rem;
+    box-shadow: 0 0 10px black;
+    text-decoration: underline;
+    background-image: linear-gradient(red, yellow);
+    text-decoration-color: black;
+    cursor: default;
+    color: blue;
+  }
+  .card{
+    border: 2px solid greenyellow;
+    border-radius: 9px;
+    margin: 1rem;
+    box-shadow: 3px 3px 10px 5px black;
+  }
+  .mainText{
+    font-size: 1.5em;
+  }
+
+  .cont{
+    
+padding: 3px;
+font-weight: 500;
+background-color: white;
+border: solid black 1px;
+border-radius: 9px;
+ box-shadow: 0 0 3px 2px gray ;
+color: rgb(26, 10, 114);
+}
+.cont:hover{
+  transition: 2s;
+  background-color: greenyellow ;
+  /* color: white; */
+  cursor: pointer;
+  box-shadow: 0 0 15px 8px greenyellow ;
+ 
+}
+.card-body{
+  height: 100%;
+}
+</style>
+{% endblock style %} {% block content %}
+
+<div class="body">
+  
+  <div class=" text-center">
+    <h1>Welcome to:</h1>
+    <h1><span  class="cont">Zeeshan's Website</span></h1>
+    <p class="mainText">
+      This is just a website that i made just to learn <b>Webdevelopemt</b>.
+    </p>
+    <p class="mainText">
+      I constantly implement the things that I learn on this website stay tuned
+      for more content .
+    </p>
+    <p class="mainText">
+      You can also <a href="{% url 'suggestion' %}"><b>Suggest</b></a> me to
+      modify or add any feature to this website. I will be <b>Thankfull</b> to
+      you
+    </p>
+  </div>
+  <hr class="h-5" />
+  <div class="container">
+    <h2 class="h-2 my-5 mx-4"><a href="{% url 'chromeex' %}"><span class="title"> Explore More Here</span></a></h2>
+    <div class="mt-3 h-100 d-flex justify-content-md-around row ">
+      <div class="card" style="width: 18rem;">
+        <div class="card-body text-center">
+          <h5 class="card-title">Frontend Projects</h5>
+          <p class="card-text">Here are some Front End Projects.</p>
+          <a href="{% url 'gpaCalculator' %}" class="btn btn-primary">Go to page</a>
+        </div>
+      </div>
+      <div class="card" style="width: 18rem;">
+        <div class="card-body text-center">
+          <h5 class="card-title">Backend Projects</h5>
+          <p class="card-text">Here are Some Projects of Backend Webdevelopment</p>
+          <a href="{% url 'student' %}" class="btn btn-primary text-center">Go to page</a>
+        </div>
+      </div>
+      <div class="card" style="width: 18rem;">
+        <div class="card-body text-center">
+          <h5 class="card-title">Python Projects</h5>
+          <p class="card-text">Here are Few Python Projects</p>
+          <a href="{% url 'result' %}" class="btn btn-primary">Go to page</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

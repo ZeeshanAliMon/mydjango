@@ -1,0 +1,42 @@
+<!-- your_template.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Page Title</title>
+  <!-- Include any CSS styles or other head content here -->
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+
+<body>
+
+  <form method="post" action="{% url 'hi' %}">
+    {% csrf_token %}
+    {{ formset.management_form }}
+    {% for form in formset %}
+      {{ form.as_p }}
+    {% endfor %}
+    <button type="button" class="add-row">Add Subject</button>
+    <input type="submit" value="Save">
+  </form>
+
+  <script>
+    $('.add-row').click(function() {
+      var formCount = parseInt($('#id_form-TOTAL_FORMS').val());
+      var newForm = $('#empty_form').html().replace(/__prefix__/g, formCount);
+      $(newForm).insertBefore('.add-row');
+      $('#id_form-TOTAL_FORMS').val(formCount + 1);
+    });
+  </script>
+
+  <!-- Template for the empty_form, which is hidden -->
+  <div id="empty_form" style="display:none;">
+    {{ formset.empty_form.as_p }}
+  </div>
+
+</body>
+
+</html>
