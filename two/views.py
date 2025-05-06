@@ -2,12 +2,12 @@ from django.shortcuts import render,HttpResponse,redirect
 from django.contrib import messages
 import pandas as pd
 
-from .forms import StudentForm
+
 from two.models import Login,Suggestion,ContactUs,Student,StudentInfo,Subject,RegGpa
 
-import time
+
 def home(request):
-    
+
     return render(request,'home.html')
 
 def about(request):
@@ -33,9 +33,9 @@ def login(request):
         login = Login(name=name,password=password)
         login.save()
         messages.success(request, "Now this name and password is saved in our database.")
-       
+
         return redirect('home')
-       
+
 
     return render(request, 'login.html')
 
@@ -48,7 +48,7 @@ def suggestion(request):
         suggestion = Suggestion(name=name,email=email,text=text)
         messages.success(request, "Thank You . Your name, Email and Suggestion is saved in our database.")
         suggestion.save()
-        
+
         return redirect('home')
     return render(request,'suggestion.html')
 
@@ -72,9 +72,9 @@ def templogin(request):
         login = Login(name=name,password=password)
         login.save()
         messages.success(request, "Now this name and password is saved in our database.")
-       
+
         return redirect('home')
-       
+
 
     return render(request, 'templogin.html')
 
@@ -88,7 +88,7 @@ def student(request,roll=0):
         # # context = {"Studentinfo": studentinfo,"Students":students}
         # context = {"studentinfo": roll,"Students":students}
         # return render(request,"student.html",context=context)
-   
+
 
     students = Student.objects.all()
 
@@ -116,7 +116,7 @@ def commit(request):
 
     for index, row in df.iterrows():
         name = row["Name"]
-        roll = int(row["Roll No"]) 
+        roll = int(row["Roll No"])
         student = Student(name=name, roll=roll)
         student.save()
 
@@ -139,7 +139,7 @@ def commitresult(request):
             Subject.objects.filter(student = student).delete()
         except :
             pass
-        
+
         file = 'result.xlsx'
         df = pd.read_excel(file)
         for index , row in df.iterrows():
@@ -148,11 +148,11 @@ def commitresult(request):
     return HttpResponse("result commited")
 def result(request):
     if request.method == "POST":
-        
+
         roll = request.POST.get("roll")
         if roll.isdigit():
-            
-    
+
+
 
             try:
                 student = Student.objects.get(roll=int(roll))
@@ -166,7 +166,7 @@ def result(request):
             subjects = "0"
             student = "0"
             print("no student found")
-            
+
         context = {"subjects": subjects,"student":student,"roll":roll}
         return render(request,"result.html",context)
     roll = ""

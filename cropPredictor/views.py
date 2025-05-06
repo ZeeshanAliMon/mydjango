@@ -1,16 +1,20 @@
 from django.shortcuts import render
-import pickle  
+import pickle
 import numpy as np
 import os
 
-path = os.path.join('static', 'models', 'cropPredictor.pkl')
+# path = os.path.join('static', 'models', 'cropPredictor.pkl')
+
+
+path = os.path.join(os.path.dirname(__file__), '..', 'static', 'models', 'cropPredictor.pkl')
 with open(path, 'rb') as file:
-      model = pickle.load(file)
+    model = pickle.load(file)
+
 def predict_crop(request):
     print("visited")
     if request.method == 'POST':
         print("posted")
-       
+
         # value1 = request.POST[0]
         # value2 = request.POST[1]
         # value3 = request.POST[2]
@@ -22,7 +26,7 @@ def predict_crop(request):
         phosphorus = request.POST.get("phosphorus")
         potassium = request.POST.get("potassium")
         temperature = request.POST.get("temperature")
-        
+
         humidity = request.POST.get("humidity")
         ph = request.POST.get("ph")
         rainfall = request.POST.get("rainfall")
@@ -31,8 +35,8 @@ def predict_crop(request):
         npfeatures = np.array([float_features])
 
 
-        
-        
+
+
         result = model.predict(npfeatures)
         print("result was ",result)
 
