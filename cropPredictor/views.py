@@ -1,11 +1,11 @@
 from django.shortcuts import render
 import pickle  
 import numpy as np
+import os
 
-# Load model (only once)
-with open("static\models\cropPredictor.pkl",'rb') as file:
-          model = pickle.load(file)
-
+path = os.path.join('static', 'models', 'cropPredictor.pkl')
+with open(path, 'rb') as file:
+      model = pickle.load(file)
 def predict_crop(request):
     print("visited")
     if request.method == 'POST':
